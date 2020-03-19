@@ -7,6 +7,7 @@
 <body>
 <a href="h01/opdracht1.php">Hoofdstuk 1</a>
 <a href="h02/hoofdstuk2.php">Hoofdstuk 2</a>
+<a href="h03/hoofdstuk3.php">Hoofdstuk 3</a>
 
 </body>
 </html>
