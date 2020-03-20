@@ -1,27 +1,65 @@
-<?php
-?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Zwemmen</title>
+    <style>
+
+        table, tr, td {
+            border: solid black 1px;
+            border-collapse: collapse;
+        }
+
+        td {
+            padding: 10px;
+        }
+
+        img{
+            width: 25px;
+            margin-right:10px ;
+        }
+        
+    </style>
 </head>
 <body>
-<?php
-$spartelkuikens = 25;
-$waterbuffels = 32;
-$plons = 11;
-$bommetje = 23;
-$zwemmers = array($spartelkuikens, $waterbuffels, $plons, $bommetje);
-$value = 5;
-$splitnum = 5;
-$plaatjes = count($zwemmers) % $splitnum;
 
-foreach ($zwemmers as &$value){
-    for($i = 0; $i < ($value - $value % $splitnum) / $splitnum; $i++) {
-        echo "<img src='img/zwem.png'>";
+<table>
+
+<?php
+
+$zwemclubs = array(
+
+        "de spartelkuikens" => 25,
+        "de waterbuffels" => 32,
+        "plonsmderin" => 11,
+        "bommetje" => 23
+);
+
+foreach ($zwemclubs as $clubnaam => $zwemmers){
+
+    echo '<tr>';
+
+    //ZWEMCLUBS
+    echo "<td>$clubnaam</td>";
+
+    //ZWEMMERSAANTALLEN
+    echo "<td>$zwemmers</td>";
+
+    echo '<td>';
+
+    $plaatjes = floor($zwemmers / 5);
+
+    for ($i = 0; $i < $plaatjes ; $i++){
+        echo '<img src="img/zwem.png" alt="zwemmers">';
     }
+
+    '<td = $plaatjes>';
+    echo '</td>';
+    echo '</tr>';
 }
 ?>
+
+</table>
+
 </body>
 </html>
 <h1></h1>
