@@ -17,7 +17,11 @@
             width: 25px;
             margin-right:10px ;
         }
-        
+
+        td.plaatjes {
+            border: solid white 1px
+        }
+
     </style>
 </head>
 <body>
@@ -43,17 +47,14 @@ foreach ($zwemclubs as $clubnaam => $zwemmers){
 
     //ZWEMMERSAANTALLEN
     echo "<td>$zwemmers</td>";
-
-    echo '<td>';
-
+    
     $plaatjes = floor($zwemmers / 5);
-
+    echo '<td class="plaatjes">';
     for ($i = 0; $i < $plaatjes ; $i++){
         echo '<img src="img/zwem.png" alt="zwemmers">';
     }
-
-    '<td = $plaatjes>';
     echo '</td>';
+
     echo '</tr>';
 }
 ?>
