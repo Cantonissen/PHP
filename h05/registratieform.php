@@ -5,76 +5,53 @@
     <title>Register</title>
 </head>
 <body>
-<style>
-    .error {
-        color: red;
-    }
-</style>
+
 <?php
 //Variabelen
 $naamError = $emailError = $adressError = $wachtwoordError = "";
 $naam = $email = $adres = $wachtwoord = "";
 
-//Testform
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    if (empty($_GET["naam"])) {
+    if (empty($_POST["naam"])) {
         $naamError = "Naam is verplicht";
     } else {
-        $naam = test_input($_GET["naam"]);
+        $naam = test_input($_POST["naam"]);
     }
-
-    if (empty($_GET["adres"])) {
-        $adressError = "E-Mail is verplicht";
+    if (empty($_POST["adres"])) {
+        $adressError = "Adres is verplicht";
     } else {
-        $adres = test_input($_GET["adres"]);
+        $adres = test_input($_POST["adres"]);
     }
-
-    if (empty($_GET["email"])) {
-        $emailError = "";
+    if (empty($_POST["email"])) {
+        $emailError = "E-Mail is verplicht";
     } else {
-        $email = test_input($_GET["email"]);
+        $email = test_input($_POST["email"]);
     }
-
-    if (empty($_GET["wachtwoord"])) {
-        $wachtwoordError = "";
+    if (empty($_POST["wachtwoord"])) {
+        $wachtwoordError = "Wachtwoord is verplicht";
     } else {
-        $wachtwoord = test_input($_GET["wachtwoord"]);
+        $wachtwoord = test_input($_POST["wachtwoord"]);
     }
-}
-function test_input($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
 }
 ?>
 
-<h2>Registratieformulier</h2>
-<p><span class="error">* Is een verplicht veld</span></p>
-<form method="post" action= "<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-    Naam <input type="text" name="naam" value="<?php echo $naam ?>">
-    <span class="error">* <?php echo $naamError ?></span>
-    <br>
-    Adres <input type="text" name="adres" value="<?php echo $adres ?>">
-    <span class="error">* <?php echo $adressError ?></span>
-    <br>
-    Email <input type="email" name="email" value="<?php echo $email ?>">
-    <span class="error">* <?php echo $emailError ?></span>
-    <br>
-    Password <input type="password" name="password" value="<?php $wachtwoord ?>">
-    <span class="error">* <?php echo $wachtwoordError ?></span>
-    <br>
+<form action="resultaat.php" method="get">
+      <div class="formulier">
+          <h1>Registratieformulier</h1>
+          <p>Vul dit formulier in om u te registreren.</p>
+          <hr>
+          <label for="naam"><b>Naam</b></label>
+          <input type="text" placeholder="Naam" name="naam" required>
+
+          <label for="adres"><b>Adres</b></label>
+          <input type="text" placeholder="Adres" name="adres" required>
+
+          <label for="email"><b>E-Mail</b></label>
+          <input type="email" placeholder="E-Mail" name="email" required>
+
+          <label for="wachtwoord"><b>Wachtwoord</b></label>
+          <input type="password" placeholder="Wachtwoord" name="wachtwoord" required>
+      </div>
     <input type="submit" name="knop" value="verstuur">
 </form>
 </body>
-</html>
-<?php
-echo "<h2>Your Input:</h2>";
-echo $naam;
-echo "<br>";
-echo $email;
-echo "<br>";
-echo $adres;
-echo "<br>";
-
-?>
