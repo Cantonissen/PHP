@@ -55,3 +55,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="submit" name="knop" value="verstuur">
 </form>
 </body>
+<a href="hoofdstuk5.php">Terug</a>
