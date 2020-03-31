@@ -2,43 +2,44 @@
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
 </head>
 <body>
+<?php
+$gebruikers = array(
+        array(
+            "email" => "piet@worldonline.nl", "klaas@carpets.nl", "truushendriks@wegweg.nl",
+            "psw" => "doetje123", "snoepje777", "arkiearkie201"
+        )
+);
+if (!empty($_POST["email"]) && !empty($_POST["psw"])) {
+    if (bestaat()) {
+        exit("Welkom");
+    } else {
+        exit("Sorry, geen toegang!");
+    }
+} else {
+    exit("Sorry, geen toegang!");
+}
 
-    <h2>Voeg uw E-Mail en wachtwoord in</h2>
-        <?php
-            $message = '';
-
-            if (isset($_POST['login']) && !empty($_POST['email']) && !empty($_POST['wachtwoord'])) {
-                if ($_POST['email'] == 'piet@worldonline.nl' &&
-                    $_POST['wachtwoord'] == 'doetje123') {
-                    $_SESSION = true;
-
-                    echo 'Welkom';
-
-                } elseif (isset($_POST['login']) && !empty($_POST['email']) && !empty($_POST['wachtwoord'])) {
-                    if ($_POST['email'] == 'klaas@carpets.nl' &&
-                        $_POST['wachtwoord'] == 'snoepje777') {
-                        $_SESSION = true;
-
-                        echo 'Welkom';
-
-                    } elseif (isset($_POST['login']) && !empty($_POST['email']) && !empty($_POST['wachtwoord'])) {
-                        if ($_POST['email'] == 'truushendriks@wegweg.nl' &&
-                            $_POST['wachtwoord'] == 'arkiearkie201') {
-                            $_SESSION = true;
-
-                            echo 'Welkom';
-                        } else {
-                            $message = 'Sorry, geen toegang!';
-                        }
-                    }
-                }
-            }
+//function bestaat() {
+//    foreach ($gebruikers as &$gebruiker) {
+//        if ($gebruiker["gebruikers"] == $_POST["gebruikers"] && $gebruiker["email"] == $_POST["email"]) {
+//            return true;
+//        }
+//    }
+//    return false;
+//}
 ?>
+<form name="login" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
+    <h1>Login</h1>
+    <label for="email"><br>E-Mail</br></label>
+    <input type="email" name="email" value="" required>
 
+</form>
 </body>
+<a href="hoofdstuk5.php">Terug</a>
+
