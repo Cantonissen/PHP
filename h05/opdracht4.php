@@ -1,41 +1,42 @@
+<!DOCTYPE html>
 <?php
+if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $psw = $_POST['psw'];
-    $error = "";
-    $toegang = "";
-
-    if (isset($_POST['submit'])){
-        if ($email == "pet@worldonline.nl"){
-            if ($psw == "doetje123"){
-                $error = "";
-                $toegang = "Welkom!";
-            } else {
-                $error = "Sorry, geen toegang!";
-                $toegang = "";
-            }
-        } else {
-            $error = "Sorry, geen toegang!";
-            $toegang = "";
-        }
+    if ($email == "piet@worldonline.nl" && $psw == "doetje123") {
+        echo("Welkom");
+    } elseif ($email == "klaas@carpets.nl" && $psw == "snoepje777") {
+        echo ("Welkom");
+    } elseif ($email == "truushendriks@wegweg.nl" && $psw == "arkiearkie201") {
+        echo("Welkom");
     }
+    else {
+        echo("Sorry, geen toegang!");
+    }
+}
 ?>
-
-<!DOCTYPE html>
 <html>
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
 </head>
 <body>
-    <div class="container">
-<h1>Login</h1>
-<p class="error"><?php echo $error; ?></p><p class="toegang"><?php echo $toegang; ?></p>
-<form method="post">
-    <input type="text" name="email" value="" required>
-    <input type="password" name="psw" value="" required>
-    <input type="submit" name="submit" value="verstuur">
+<form action="" method="post">
+    <table align="center">
+        <tr>
+            <td>E-Mail:</td>
+            <td><input type="email" name="email" required></td>
+        </tr>
+        <tr>
+            <td>Wachtwoord:</td>
+            <td><input type="password" name="psw" required></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" name="submit" value="submit"></td>
+        </tr>
+    </table>
 </form>
-    </div>
 <a href="hoofdstuk5.php">Terug</a>
 </body>
 </html>
