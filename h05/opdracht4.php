@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <?php
+
 if (isset($_POST['submit'])) {
     $email = $_POST['email'];
     $psw = $_POST['psw'];
@@ -14,6 +15,7 @@ if (isset($_POST['submit'])) {
         echo("Sorry, geen toegang!");
     }
 }
+
 ?>
 <html>
 <head>
